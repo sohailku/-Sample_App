@@ -24,7 +24,7 @@ pipeline {
    }
       stage('Android RUN') {
    steps {
-      sh 'ionic cordova emulate android'
+      sh 'ionic cordova emulate android --release'
    }
   }
 
