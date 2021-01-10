@@ -24,14 +24,15 @@ pipeline {
     }
   }
 
-stage( 'Stage Fastlane init') {
+stage( 'Stage Fastlane test') {
     steps { 
         sh "pwd"
         dir ('platforms/android') {
             sh "pwd"
+            sh "fastlane test"
         }
         sh "pwd"
-        sh 'fastlane test'
+        
     }
 }
    
