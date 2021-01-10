@@ -26,8 +26,11 @@ pipeline {
 
 stage( 'Stage Fastlane init') {
     steps { 
-        sh 'cd platforms/android'
-        sh 'ls -lart'
+        sh "pwd"
+        dir ('platforms/android') {
+            sh "pwd"
+        }
+        sh "pwd"
         sh 'fastlane test'
     }
 }
