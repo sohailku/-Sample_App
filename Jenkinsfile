@@ -17,6 +17,12 @@ pipeline {
    }
   }
 
+     stage('APK Sign') {
+   steps {
+      sh 'jarsigner -storepass test@123 -keystore keys/helloWorld.keystore platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk alias_name'
+   }
+   }
+
 
    stage('Stage Web Build') {
       steps {
