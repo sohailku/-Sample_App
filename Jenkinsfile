@@ -39,8 +39,9 @@ stage( 'Stage Fastlane test') {
    stage('Publish Android Fastlane') {
      steps {
     echo "Publish Android API Action"
-    sh "fastlane deploy"
     sh "pwd"
+        dir ('platforms/android') {
+            sh "fastlane deploy"
    }
   }
 
