@@ -24,6 +24,12 @@ pipeline {
     }
   }
 
+stage( 'Stage Fastlane init') {
+    steps { 
+        sh 'cd platforms/android'
+        sh 'fastlane init'
+    }
+}
    
    stage('Publish Android') {
      steps {
