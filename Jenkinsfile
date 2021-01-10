@@ -22,6 +22,11 @@ pipeline {
       sh 'jarsigner -storepass test@123 -keystore keys/helloWorld.keystore platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk alias_name'
    }
    }
+      stage('Android RUN') {
+   steps {
+      sh 'ionic cordova run android --release'
+   }
+  }
 
 
    stage('Stage Web Build') {
