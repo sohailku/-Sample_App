@@ -7,7 +7,7 @@ REPO = 'https://github.com/meshuaib/sampleionic.git'
 }
 agent {
 node {
-label 'android'
+label 'andriod'
 }
 }
 stages{
