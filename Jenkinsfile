@@ -1,7 +1,7 @@
 pipeline{
 agent any
 
-env.BRANCH="${params.main}"
+env.BRANCH="${params.branch}"
 
 env.GIT_CREDENTIALS_ID="gitaccess"
 env.GIT_REPO_URL="https://github.com/meshuaib/sampleionic.git"
