@@ -27,7 +27,7 @@ pipeline {
                             exitCode = sh(script: """
                                 docker login -u $USERNAME -p $PASSWORD
                                 docker build -t  meshuaib/ionic-fastlane:$commitId .
-                                docker push meshuaib/ionic-fastlane:$commitId 
+                                
                             """, returnStatus: true)
                         }
                     }
