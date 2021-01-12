@@ -4,7 +4,7 @@ environment {
 BUILDTYPE = ‘Release’
 BRANCH = ‘main’
 BRANCH_ANDROIDKIT = ‘main’
-REPO = ‘https://github.com/meshuaib/sampleionic.git’
+REPO = 'https://github.com/meshuaib/sampleionic.git'
 }
 agent {
 node {
