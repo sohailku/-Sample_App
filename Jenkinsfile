@@ -34,6 +34,11 @@ pipeline {
                 }  
                 }
                 }
+         stage('Docker Remove Image') {
+      steps {
+        sh "docker rmi kmlaydin/podinfo:${env.BUILD_NUMBER}"
+      }
+    }
                 stage ('Fastlane Test') {
                 steps {
                   script {
