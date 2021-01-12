@@ -14,9 +14,9 @@ label ‘android’
 
 stage( 'Clone the Library') {
 steps{ 
-clonelib()
-git branch: “${BRANCH}”, credentialsId: ‘gitaccess’, url: “${REPO}” 
-}
+         script {
+           checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'gitaccess', url: 'https://github.com/meshuaib/sampleionic.git']]])
+         }
 }
 
 stage(‘Build’) {
