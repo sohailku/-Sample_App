@@ -15,7 +15,7 @@ pipeline {
                 stage ('Build & Push Image') {
                 steps {
                 script {
-                    dockerUrl = "hub.docker.com"
+                    //dockerUrl = "hub.docker.com"
                     commitId = sh(script: 'git rev-parse --verify --short HEAD', returnStdout: true).trim()
                     withCredentials([usernamePassword(
                         credentialsId: "dockerhub",
