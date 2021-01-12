@@ -13,7 +13,7 @@ label 'andriod'
 stages{
 stage('Clone the Library') {
 steps{ 
-  checkout([$class: 'GitSCM', git branch: "${BRANCH}", doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'gitaccess', url:"${REPO}"]]])
+  checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'gitaccess', url:"${REPO}"]]])
 }
 }
 }
