@@ -13,7 +13,7 @@ label 'andriod'
 stages{
 stage('Clone the Library') {
 steps{ 
-git branch: "${BRANCH}", credentialsId: gitaccess, url: 'https://github.com/meshuaib/sampleionic.git'
+  checkout([$class: 'GitSCM', git branch: "${BRANCH}", doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'gitaccess', url:"${REPO}"]]])
 }
 }
 }
