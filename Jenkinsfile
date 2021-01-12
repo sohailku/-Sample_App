@@ -36,8 +36,13 @@ pipeline {
                 }
                 stage ('Fastlane Test') {
                 steps {
-                   sh "docker run -it meshuaib/ionic-fastlane:$commitId bash"
-                   sh "fastlane test"
+                  script {
+                    // This step should not normally be used in your script. Consult the inline help for details.
+                    withDockerContainer('meshuaib/ionic-fastlane:$commitId') {
+    // some block
+    sh "fastlane test"
+}
+                }
                 }
              }
 
