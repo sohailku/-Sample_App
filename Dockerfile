@@ -2,5 +2,6 @@ FROM meshuaib/ionic-fastlane
 WORKDIR /app
 COPY . /app/
 RUN cd /app/platforms/android
-RUN ls -lart
-RUN  sh fastlane test
+ENV LANG=en_US.UTF-8
+RUN ls -lart && \
+fastlane test
