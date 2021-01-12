@@ -1,6 +1,7 @@
 FROM meshuaib/ionic-fastlane
-WORKDIR /app
+WORKDIR /app/platforms/android
 COPY . /app/
-RUN cd /app/platforms/android
-RUN ls -lart
-RUN  sh fastlane test
+RUN export LANG=en_US.UTF-8
+RUN cd /app/platforms/android && \
+ls -lart
+CMD ["bash"]
