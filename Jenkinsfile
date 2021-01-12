@@ -39,7 +39,7 @@ timestampedNode(env.BUILD_NODE) {
 def gitCheckoutBranch(branch){
   checkout([
     $class: 'GitSCM',
-    branches: [[name: "*/${branch}"]],
+    branches: [[name: "*/${main}"]],
     doGenerateSubmoduleConfigurations: false,
     extensions: [],
     submoduleCfg: [],
