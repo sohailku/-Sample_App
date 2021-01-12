@@ -3,4 +3,4 @@ WORKDIR /app
 COPY . /app/
 RUN cd /app/platforms/android
 RUN ls -lart
-RUN fastlane test
+RUN  sh fastlane test
