@@ -1,5 +1,5 @@
 FROM meshuaib/ionic-fastlane
 WORKDIR /app
 COPY . /app/
-RUN cd /app/android/
+RUN cd /app/platforms/android
 RUN ls -la
