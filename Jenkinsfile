@@ -5,9 +5,7 @@ BUILDTYPE = ‘Release’
 BRANCH = ‘main’
 BRANCH_ANDROIDKIT = ‘main’
 BRANCH_XXXINGLIB = ‘main’
-REPO = ‘git@github.com:meshuaib/sampleionic.git’
-ANDROIDKITREPO = ‘https://github.com/meshuaib/sampleionic.git’
-XXXINGLIBREPO = ‘https://github.com/meshuaib/sampleionic.git’ 
+REPO =‘git@github.com:meshuaib/sampleionic.git’
 }
 agent {
 node {
