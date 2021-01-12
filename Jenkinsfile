@@ -1,63 +1,38 @@
 pipeline {
-   agent any
-      environment {
-         PATH='/usr/local/bin:/usr/bin:/bin'
-      }
+  agent { 
+    node { 
+      label 'andriod' 
+    }
+   }
    stages {
-      stage('NPM Setup') {
-      steps {
-         sh 'npm install'
-      }
+     stage('Checkout') {
+       steps {
+         script {
+           checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'gitaccess', url: 'https://github.com/meshuaib/sampleionic.git']]])
+         }
+       }
+     }
+                stage ('Build & Push Image') {
+                steps {
+                script {
+                    dockerUrl = "hub.docker.com"
+                    commitId = sh(script: 'git rev-parse --verify --short HEAD', returnStdout: true).trim()
+                    withCredentials([usernamePassword(
+                        credentialsId: "dockerhub",
+                        usernameVariable: "USERNAME",
+                        passwordVariable: "PASSWORD"
+                    )
+                    ]) {
+                        ansiColor('xterm') {
+                            exitCode = sh(script: """
+                                docker login $dockerUrl -u $USERNAME -p $PASSWORD
+                                docker build -t  meshuaib/ionic-fastlane:$commitId .
+                            """, returnStatus: true)
+                        }
+                    }
+                }  
+                }
+                }
+
    }
-
-
-   stage('Android Build') {
-   steps {
-      sh 'ionic cordova build android'
-   }
-  }
-
-     stage('APK Sign') {
-   steps {
-      sh 'jarsigner -storepass test@123 -keystore keys/helloWorld.keystore platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk alias_name'
-   }
-   }
-      stage('Android RUN') {
-   steps {
-      sh 'ionic cordova emulate android'
-   }
-  }
-
-
-   stage('Stage Web Build') {
-      steps {
-        sh 'npm run build --prod'
-    }
-  }
-
-stage( 'Stage Fastlane test') {
-    steps { 
-        sh "pwd"
-        dir ('platforms/android') {
-            sh "pwd"
-            sh "fastlane test"
-        }
-        sh "pwd"
-        
-    }
-}
-   
-   stage('Publish Android Fastlane') {
-     
-     steps {
-       input('Do you want to proceed?')
-    echo "Publish Android API Action"
-    sh "pwd"
-        dir ('platforms/android') {
-            sh "fastlane deploy"
-   }
-  }
-
- }
-}
 }
