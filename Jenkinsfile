@@ -12,11 +12,6 @@ label ‘android’
 }
 }
 stages{
-stage(‘Cleaning the workspace’) {
-steps {
-sh “rm -rf ${WORKSPACE}/*”
-}
-}
 stage(‘Clone the Library’) {
 steps{ 
 clonelib()
