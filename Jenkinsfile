@@ -41,7 +41,7 @@ pipeline {
          script {
          sh 'fastlane android build'
 withDockerContainer('meshuaib/ionic-fastlane:$commitId') {
-     sh 'fastlane android build'
+     sh 'fastlane test'
 }
          }
        }
