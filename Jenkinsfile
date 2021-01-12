@@ -34,11 +34,6 @@ pipeline {
                 }  
                 }
                 }
-                stage ('Fastlane Test') {
-                steps {
-                   sh "fastlane test"
-                }
-             }
 
    }
 }
