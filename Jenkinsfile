@@ -46,4 +46,5 @@ withDockerContainer('meshuaib/ionic-fastlane:$commitId') {
          }
        }
    }
+   }
 }
