@@ -35,6 +35,15 @@ pipeline {
                 }
                 }
                
-
+// This step should not normally be used in your script. Consult the inline help for details.
+     stage ('test') {
+       steps {
+         script {
+         sh 'fastlane android build'
+withDockerContainer('meshuaib/ionic-fastlane:$commitId') {
+     sh 'fastlane android build'
+}
+         }
+       }
    }
 }
