@@ -1,8 +1,8 @@
 pipeline
 {
 environment {
-BUILDTYPE = ‘Release’
-BRANCH = ‘main’
+BUILDTYPE = 'Release'
+BRANCH = 'main'
 
 REPO = "https://github.com/meshuaib/sampleionic.git"
 }
@@ -22,7 +22,7 @@ steps{
 stage(‘Build’) {
 steps{
 script {
-if (BUILDTYPE == ‘Release’) { 
+if (BUILDTYPE == 'Release') { 
 buildRelease()
 } else {
 buildDebug()
