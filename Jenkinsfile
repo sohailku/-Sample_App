@@ -36,7 +36,7 @@ timestampedNode(env.BUILD_NODE) {
     }
 }
 
-def gitCheckoutBranch(maine){
+def gitCheckoutBranch(main){
   checkout([
     $class: 'GitSCM',
     branches: [[name: "*/${main}"]],
