@@ -1,50 +1,42 @@
-pipeline {
-  agent { 
-    node { 
-      label 'andriod' 
-    }
-   }
-   stages {
-     stage('Checkout') {
-       steps {
-         script {
-           checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'gitaccess', url: 'https://github.com/meshuaib/sampleionic.git']]])
-         }
-       }
-     }
-                stage ('Build & Push Image') {
-                steps {
-                script {
-                    //dockerUrl = "hub.docker.com"
-                    commitId = sh(script: 'git rev-parse --verify --short HEAD', returnStdout: true).trim()
-                    withCredentials([usernamePassword(
-                        credentialsId: "dockerhub",
-                        usernameVariable: "USERNAME",
-                        passwordVariable: "PASSWORD"
-                    )
-                    ]) {
-                        ansiColor('xterm') {
-                            exitCode = sh(script: """
-                                docker login -u $USERNAME -p $PASSWORD
-                                docker build -t  meshuaib/ionic-fastlane:$commitId .                               
-                            """, returnStatus: true)
-                        }
-                    }
-                }  
-                }
-                }
-               
-// This step should not normally be used in your script. Consult the inline help for details.
-     stage ('test') {
-       steps {
-         script {
-         sh 'fastlane android build'
-withDockerContainer('meshuaib/ionic-fastlane:$commitId') {
-     sh 'fastlane test'
-      sh 'ls -lart'
+pipeline
+{
+environment {
+BUILDTYPE = ‘Release’
+BRANCH = ‘main’
+BRANCH_ANDROIDKIT = ‘main’
+BRANCH_XXXINGLIB = ‘main’
+REPO = ‘https://github.com/meshuaib/sampleionic.git’
+ANDROIDKITREPO = ‘https://github.com/meshuaib/sampleionic.git’
+XXXINGLIBREPO = ‘https://github.com/meshuaib/sampleionic.git’ 
 }
-         }
-       }
-   }
-   }
+agent {
+node {
+label ‘android’
+}
+}
+stages{
+stage(‘Cleaning the workspace’) {
+steps {
+sh “rm -rf ${WORKSPACE}/*”
+}
+}
+stage(‘Clone the Library’) {
+steps{ 
+clonelib()
+git branch: “${BRANCH}”, credentialsId: ‘XXXX’, url: “${REPO}” 
+}
+}
+
+stage(‘Build’) {
+steps{
+script {
+if (BUILDTYPE == ‘Release’) { 
+buildRelease()
+} else {
+buildDebug()
+}
+}
+}
+}
+}
 }
