@@ -1,9 +1,8 @@
 pipeline
 {
 environment {
-BUILDTYPE = ‘Release’
+BUILDTYPE = 'Release'
 BRANCH = 'main'
-BRANCH_ANDROIDKIT = ‘main’
 REPO = 'https://github.com/meshuaib/sampleionic.git'
 }
 agent {
