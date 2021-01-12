@@ -15,7 +15,7 @@ stages{
 stage('Clone the Library') {
 steps{ 
 clonelib()
-git branch: "${BRANCH}", credentialsId: gitaccess, url: 'https://github.com/meshuaib/sampleionic.git
+git branch: "${BRANCH}", credentialsId: gitaccess, url: 'https://github.com/meshuaib/sampleionic.git'
 }
 }
 }
