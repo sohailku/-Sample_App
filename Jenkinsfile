@@ -1,16 +1,37 @@
-pipeline {
-  agent { 
-    node { 
-      label 'andriod' 
-    }
-   }
-   stages {
-     stage('Checkout') {
-       steps {
-         script {
-           checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'gitaccess', url: 'https://github.com/meshuaib/sampleionic.git']]])
-         }
-       }
-     }
-   }
+pipeline
+{
+environment {
+BUILDTYPE = ‘Release’
+BRANCH = ‘main’
+
+REPO = ‘git@github.com:meshuaib/sampleionic.git’
+}
+agent {
+node {
+label ‘android’
+}
+}
+stages{
+stage(‘Cleaning the workspace’) {
+steps {
+sh “rm -rf ${WORKSPACE}/*”
+}
+}
+stage(‘Clone the Library’) {
+steps{ 
+clonelib()
+git branch: “${BRANCH}”, credentialsId: ‘gitaccess’, url: “${REPO}” 
+}
+}
+
+stage(‘Build’) {
+steps{
+script {
+if (BUILDTYPE == ‘Release’) { 
+buildRelease()
+} else {
+buildDebug()
+}
+}
+}
 }
