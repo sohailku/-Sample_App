@@ -16,16 +16,6 @@ steps{
   checkout([$class: 'GitSCM', branches: "${BRANCH}" , doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'gitaccess', url:"${REPO}"]]])
 }
 }
-  stage(‘Build’) {
-steps{
-script {
-if (BUILDTYPE == ‘Release’) { 
-buildRelease()
-} else {
-buildDebug()
-}
-}
-}
-}
+ 
 }
 }
