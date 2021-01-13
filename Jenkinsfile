@@ -32,9 +32,9 @@ pipeline {
                         }
                     }
                 }  
-            stage ('Fastlane Test') {
+                stage ('Fastlane') {
                 steps {
-                  script {
+                script {
                     // This step should not normally be used in your script. Consult the inline help for details.
                     withDockerContainer(args: 'bash', image: 'meshuaib/ionic-fastlane:$commitId\'') {
     // some block
