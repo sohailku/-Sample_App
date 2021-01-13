@@ -34,6 +34,14 @@ pipeline {
                 }  
                 }
                 }
+     
+     stage ('buildRelease') {
+                steps {
+                script {
+                    sh './gradlew build'
+                }
+                }
+     }
                 stage ('Fastlane Test') {
                 steps {
                 script {
