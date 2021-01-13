@@ -10,6 +10,7 @@ ENV LANGUAGE en_US.UTF-8
 
 COPY . /app/
 WORKDIR /app/platforms/android
-RUN pwd && \
-fastlane test
+RUN  echo $pwd
+RUN ls -la
+RUN fastlane test
 
