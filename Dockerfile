@@ -7,7 +7,7 @@ ENV LANGUAGE en_US.UTF-8
 
 
 
-
+USER root
 COPY . /app/
 WORKDIR /app/platforms/android
 RUN  echo $pwd
