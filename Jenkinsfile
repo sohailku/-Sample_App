@@ -32,7 +32,9 @@ pipeline {
                         }
                     }
                 }  
-                stage ('Fastlane') {
+                }
+                }
+                stage ('Fastlane Test') {
                 steps {
                 script {
                     // This step should not normally be used in your script. Consult the inline help for details.
@@ -43,7 +45,6 @@ pipeline {
                 }
                 }
              }
-   }
+   
                 }
-}
 }
