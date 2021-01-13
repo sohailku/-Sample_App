@@ -10,7 +10,6 @@ ENV LANGUAGE en_US.UTF-8
 WORKDIR /app/platforms/android
 COPY . /app/
 
-RUN cd /app/platforms/android && \
-fastlane test && \
-ls -lart
+RUN fastlane test
+
 CMD ["bash"]
