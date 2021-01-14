@@ -37,7 +37,8 @@ pipeline {
                 }
                 stage ('Deploy') {
                 steps {
-                  sh 'docker run -rm meshuaib/ionic-fastlaneci fastlane test
+                 
+                  sh docker run meshuaib/ionic-fastlaneci /bin/sh -c "fastlane test"
    
                   
     }
