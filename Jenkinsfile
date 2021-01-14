@@ -57,7 +57,7 @@ pipeline {
                  steps {
                    scripts {
                      img = docker.image('meshuaib/ionic-fastlane:$commitId')
-                     img.inside ('-u root) {
+                     img.inside ('-u root') {
                                  try{
                                    sh "fastlane test"
                     }
