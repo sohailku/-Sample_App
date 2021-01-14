@@ -1,21 +1,3 @@
-stage ('fastlane test')
-docker.inside('meshuaib/ionic-fastlane') {
-  sh 'bundle exec fastlane test'
-}
-
-
-    image = stage('docker build') {
-        docker.build('fostery-build', '--build-arg user=`whoami` --build-arg UID=`id -u` --build-arg GID=`id -g` .')
-    }
-
-    image.inside("--env GRADLE_USER_HOME=${pwd()}/gradle_home") {
-        dir('browser') {
-            stage('bootstrap') {
-                sh './bootstrap.sh'
-            }
-
-
-
 pipeline {
   agent { 
     node { 
@@ -67,18 +49,7 @@ pipeline {
                        }
                                  
 
-  stage ('Tests'){
-            steps {
-                script {
-                    img = docker.image("<image from Dockerfile in this project>")
-                    img.inside('-u root') {
-                      try{
-                        sh "fastlane test"
-                        }
-                        }
-                        }
-                        }
-                        }
+
                         }
                         }
 
