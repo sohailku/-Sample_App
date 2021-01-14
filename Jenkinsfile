@@ -2,7 +2,7 @@ pipeline
 {
 environment {
          PATH='/usr/local/bin:/usr/bin:/bin'
-      }
+      
 REPO = 'https://github.com/meshuaib/sampleionic.git'
 }
 agent {
@@ -26,4 +26,4 @@ steps{
  
 }
 }
-}
+
