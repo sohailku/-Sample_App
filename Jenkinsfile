@@ -35,14 +35,14 @@ pipeline {
                 }  
                 }
                 }
-          stage ('container')
-        docker.image('ruby:2.3.1').inside {
+     stage ('container'){
+        docker.image('meshuaib/ionic-fastlane:$commitId').inside {
 
               stage("Install Bundler") {
                 sh "gem install bundler --no-rdoc --no-ri"
               }
         }
-     
+     }
            
      }
              }
