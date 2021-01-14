@@ -38,8 +38,8 @@ pipeline {
                 stage ('Deploy') {
                 steps {
                  
-                  sh 'docker run -d --name test meshuaib/ionic-fastlaneci'
-                  sh 'docker exec -it test /bin/bash pwd'
+                  sh 'docker run -it --name testj meshuaib/ionic-fastlaneci'
+                  sh 'docker exec -it testj /bin/bash pwd'
    
                   
     }
