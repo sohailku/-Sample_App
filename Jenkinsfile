@@ -39,7 +39,7 @@ pipeline {
                 steps {
                  
                   sh 'docker run -d --name test meshuaib/ionic-fastlaneci'
-                  sh 'docker exec -it test bash/sh 'fastlane test''
+                  sh 'docker exec -it test /bin/bash pwd'
    
                   
     }
