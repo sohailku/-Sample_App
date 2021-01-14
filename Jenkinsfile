@@ -16,6 +16,11 @@ steps{
   checkout([$class: 'GitSCM',branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'gitaccess', url:"${REPO}"]]])
 }
 }
+      stage('Running Tests') {
+      steps {
+        sh 'fastlane test'
+      }
+    }
  
 }
 }
