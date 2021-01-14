@@ -1,8 +1,8 @@
 pipeline
 {
 environment {
-BUILDTYPE = 'Release'
-BRANCH = '*/main'
+         PATH='/usr/local/bin:/usr/bin:/bin'
+      }
 REPO = 'https://github.com/meshuaib/sampleionic.git'
 }
 agent {
