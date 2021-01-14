@@ -35,23 +35,7 @@ pipeline {
                 }
                 }
      
-     stage ('buildRelease') {
-                steps {
-                script {
-                    sh './gradlew build'
-                }
-                }
      }
-                stage ('Fastlane Test') {
-                steps {
-                script {
-                    // This step should not normally be used in your script. Consult the inline help for details.
-                    withDockerContainer(args: 'bash', image: 'meshuaib/ionic-fastlane:$commitId\'') {
-    // some block
-    sh "fastlane test"
-}
-                }
-                }
              }
    
                 }
