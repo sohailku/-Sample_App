@@ -42,7 +42,8 @@ pipeline {
               stage("Install Bundler") {
                 sh "gem install bundler --no-rdoc --no-ri"
               }
-       
+        }
+     }
            
      }
              }
