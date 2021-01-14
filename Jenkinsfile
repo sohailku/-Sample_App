@@ -25,7 +25,9 @@ steps{
     }
   stage ('Fastlane deploy'){
   steps {
+    dir ('platforms/android'){
     sh "fastlane deploy"
+    }
   }
 }
 
