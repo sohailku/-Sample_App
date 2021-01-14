@@ -12,7 +12,7 @@ pipeline {
          }
        }
      }
-                stage ('Build & Push Image') {
+               image = stage ('Build & Push Image') {
                 steps {
                 script {
                     //dockerUrl = "hub.docker.com"
@@ -35,14 +35,6 @@ pipeline {
                 }  
                 }
                 }
-     stage ('container'){
-        docker.image('meshuaib/ionic-fastlane:$commitId').inside {
-
-              stage("Install Bundler") {
-                sh "gem install bundler --no-rdoc --no-ri"
-              }
-        }
-     }
            
      }
              }
