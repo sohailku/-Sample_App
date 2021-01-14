@@ -37,7 +37,7 @@ pipeline {
                 stage ('Test and Build') {
     agent {
         docker {
-            image 'meshuaib/ionic-fastlane:$commitId'
+            image 'meshuaib/ionic-fastlane'
             //args '-v "$PWD":/app'
             //reuseNode true
         }
