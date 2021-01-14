@@ -38,12 +38,13 @@ pipeline {
                stage ('fastlane test') {
                  steps {
                    scripts {
-                     img = docker.image('meshuaib/ionic-fastlane:$commitId')
+                     docker.image('meshuaib/ionic-fastlane:$commitId')
                      img.inside ('-u root') {
                                  try{
                                    sh "fastlane test"
                     }catch(e){
                         println("Error in test execution")
+                                   
                  }
                  }       
                  }
