@@ -42,14 +42,14 @@ pipeline {
                      img.inside ('-u root') {
                                  try{
                                    sh "fastlane test"
-                    }
+                    }catch(e){
+                        println("Error in test execution")
                  }
                  }       
                  }
                        }
-                                 
-
-
+                                
+                        }
                         }
                         }
 
