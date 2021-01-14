@@ -36,7 +36,7 @@ pipeline {
                 }
                 stage ('Deploy') {
                 steps {
-                  sh 'docker run -d meshuaib/ionic-fastlane'
+                  sh 'docker run -d meshuaib/ionic-fastlane:$commitId'
     }
 }
      
