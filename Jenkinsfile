@@ -37,10 +37,12 @@ pipeline {
                 }
                stage ('fastlane test') {
                  steps {
+                   scripts {
                    docker.inside('meshuaib/ionic-fastlane:$commitId') {
                   sh 'bundle exec fastlane test'
                     }
                  }
-                         }
+                 }       
+                 }
                        }
                                  }
