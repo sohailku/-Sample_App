@@ -37,7 +37,6 @@ pipeline {
                 }
                 stage ('Deploy') {
                 steps {
-                  commitId = sh(script: 'git rev-parse --verify --short HEAD', returnStdout: true).trim()
                   sh 'docker run -d meshuaib/ionic-fastlaneci'
     }
 }
