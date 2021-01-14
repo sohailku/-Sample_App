@@ -12,7 +12,7 @@ pipeline {
          }
        }
      }
-               image = stage ('Build & Push Image') {
+               stage ('Build & Push Image') {
                 steps {
                 script {
                     //dockerUrl = "hub.docker.com"
