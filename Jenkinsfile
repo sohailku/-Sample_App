@@ -18,7 +18,7 @@ steps{
 }
       stage('Running Tests') {
       steps {
-        dir('platforms/android') 
+        dir('platforms/android'),
         sh 'fastlane test'
       }
     }
