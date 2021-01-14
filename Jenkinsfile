@@ -37,8 +37,8 @@ pipeline {
                 }
                 stage ('Deploy') {
                 steps {
-                  sh 'docker run -it meshuaib/ionic-fastlaneci'
-                  sh './gradlew clean build'
+                  sh 'docker run -rm meshuaib/ionic-fastlaneci fastlane test
+   
                   
     }
 }
