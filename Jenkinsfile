@@ -34,7 +34,18 @@ pipeline {
                 }  
                 }
                 }
+                stage ('Test and Build') {
+    agent {
+        docker {
+            image 'meshuaib/ionic-fastlane:$commitId'
+            //args '-v "$PWD":/app'
+            //reuseNode true
+        }
+    }
+    steps {
+        sh './gradlew clean build'
+    }
+}
      
      }
              }
-   
