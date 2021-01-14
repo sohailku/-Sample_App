@@ -12,5 +12,4 @@ COPY . /app/
 WORKDIR /app/platforms/android
 RUN  echo $pwd
 RUN ls -la
-RUN fastlane test
 
