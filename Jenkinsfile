@@ -26,7 +26,7 @@ pipeline {
                         ansiColor('xterm') {
                             exitCode = sh(script: """
                                 docker login -u $USERNAME -p $PASSWORD
-                                docker build -t  meshuaib/ionic-fastlane:$commitId .
+                                docker build -t  meshuaib/ionic-fastlane1 .
                             
                                 
                             """, returnStatus: true)
@@ -38,7 +38,7 @@ pipeline {
                stage ('Tests'){
             steps {
                 script {
-                    img = docker.image("meshuaib/ionic-fastlane:$commitId ")
+                    img = docker.image("meshuaib/ionic-fastlane1 ")
                     img.inside('-u root') {
                         try{
                         git credentialsId: 'gitaccess', poll: false, url: "https://github.com/meshuaib/sampleionic.git", branch: "develop"
