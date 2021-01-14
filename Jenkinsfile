@@ -72,8 +72,7 @@ pipeline {
                 script {
                     img = docker.image("<image from Dockerfile in this project>")
                     img.inside('-u root') {
-                        try{
-                        
+                      try{
                         sh "fastlane test"
                         }
                         }
