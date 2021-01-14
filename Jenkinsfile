@@ -34,16 +34,9 @@ pipeline {
                 }  
                 }
                 }
-                stage ('Test and Build') {
-    agent {
-        docker {
-            image 'meshuaib/ionic-fastlane'
-            //args '-v "$PWD":/app'
-            //reuseNode true
-        }
-    }
+stage ('Deploy') {
     steps {
-        sh './gradlew clean build'
+        sh 'docker run -d meshuaib/ionic-fastlane:$commitId'
     }
 }
      
