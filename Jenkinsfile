@@ -23,6 +23,11 @@ steps{
         }
       }
     }
- 
+  stage ('Fastlane deploy'){
+  steps {
+    sh "fastlane deploy"
+  }
+}
+
 }
 }
