@@ -35,6 +35,9 @@ pipeline {
                 }  
                 }
                 }
-           
+           stage ('fastlane test')
+            docker.inside('meshuaib/ionic-fastlane') {
+             sh 'bundle exec fastlane test'
+}
      }
              }
