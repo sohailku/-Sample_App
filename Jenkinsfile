@@ -16,7 +16,7 @@ pipeline {
                 steps {
                 script {
                     //dockerUrl = "hub.docker.com"
-                    commitId = sh(script: 'git rev-parse --verify --short HEAD', returnStdout: true).trim()
+                    #commitId = sh(script: 'git rev-parse --verify --short HEAD', returnStdout: true).trim()
                     withCredentials([usernamePassword(
                         credentialsId: "dockerhub",
                         usernameVariable: "USERNAME",
@@ -26,7 +26,8 @@ pipeline {
                         ansiColor('xterm') {
                             exitCode = sh(script: """
                                 docker login -u $USERNAME -p $PASSWORD
-                                docker build -t  meshuaib/ionic-fastlane:$commitId .
+                                #docker build -t  meshuaib/ionic-fastlane:$commitId .
+                                docker build -t  meshuaib/ionic-fastlaneci .
                                 
                             """, returnStatus: true)
                         }
@@ -37,7 +38,7 @@ pipeline {
                 stage ('Deploy') {
                 steps {
                   commitId = sh(script: 'git rev-parse --verify --short HEAD', returnStdout: true).trim()
-                  sh 'docker run -d meshuaib/ionic-fastlane:$commitId'
+                  sh 'docker run -d meshuaib/ionic-fastlaneci'
     }
 }
      
