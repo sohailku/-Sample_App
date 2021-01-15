@@ -2,7 +2,7 @@ pipeline {
     agent none
     stages {
         stage ('build') {
-            agent { label 'andriod' }
+            agent { label 'docker' }
             steps {
                 echo 'linux build'
             }
