@@ -36,11 +36,13 @@ pipeline {
                 }
                 }
                stage ('Tests'){
-                 agent { docker 'openjdk:8' }
+                 agent { docker {
+                   image 'openjdk:8' }
                   steps { 
                   sh "java -version"
                 }
                }
                         }
                         }
+
 
