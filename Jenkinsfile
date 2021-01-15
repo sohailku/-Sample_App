@@ -1,10 +1,11 @@
 pipeline {
-  agent { 
+  agent none
+   
+   stages {
+       agent { 
     node { 
       label 'docker' 
     }
-   }
-   stages {
      stage('Checkout') {
        steps {
          script {
@@ -36,6 +37,7 @@ pipeline {
                 }
                 }
                stage ('Tests')  {
+                 agent {
                  
                    docker {
                         image 'openjdk:8' }
@@ -47,4 +49,4 @@ pipeline {
                         }
 }
 
-
+   }
