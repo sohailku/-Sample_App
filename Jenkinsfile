@@ -1,11 +1,19 @@
-pipeline {
-    agent none
-    stages {
-        stage ("build 8"){
-            agent {docker 'openjdk:8'}
-            steps {
-                sh "java --vesion"
-            }
-        }
-    }
+pipeline {	
+	agent {
+		docker {
+			image 'ubuntu:latest'
+		}
+	}
+    stages {	
+        stage('Build') {	
+            steps {	
+                sh 'cat /etc/lsb-release'
+            }	
+        }	
+        stage('Deploy') {	
+            steps {	
+                sh 'cat /etc/lsb-release'
+            }	
+        }			
+    }	
 }
