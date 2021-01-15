@@ -1,10 +1,9 @@
 pipeline {
-    agent none
+    agent { docker { image 'openjdk:8' } }
     stages {
-        stage ("build 8") {
-            agent {docker 'openjdk:8'}
+        stage('build') {
             steps {
-                sh "java --vesion"
+                sh 'java --version'
             }
         }
     }
