@@ -36,23 +36,11 @@ pipeline {
                 }
                 }
                stage ('Tests'){
-                steps {
-                script {
-                    img = docker.image("meshuaib/ionic-fastlane$commitId")
-                    img.inside('-u root') {
-                        try{
-                        git credentialsId: 'gitaccess', poll: false, url: "https://github.com/meshuaib/sampleionic.git", branch: "develop"
-                        sh "fastlane test"
-                        }catch(e){
-                        println("Error in test execution")
-                        
-                        }
-
-                    }
-               }
-               
-           }
+                 agent { docker 'meshuaib/ionic-fastlane$commitId' }
+                steps { 
+                  sh "java -version"
                 }
+               }
                         }
                         }
 
