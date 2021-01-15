@@ -36,7 +36,7 @@ pipeline {
                 }
                 }
                stage ('Tests'){
-                 agent { docker 'meshuaib/ionic-fastlane2' }
+                 agent { docker 'openjdk:8' }
                   steps { 
                   sh "java -version"
                 }
