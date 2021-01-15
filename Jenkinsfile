@@ -2,11 +2,12 @@ pipeline {
   agent none
    
    stages {
+     stage('Checkout') {
        agent { 
     node { 
       label 'docker' 
     }
-     stage('Checkout') {
+     
        steps {
          script {
            checkout([$class: 'GitSCM', branches: [[name: '*/develop']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'gitaccess', url: 'https://github.com/meshuaib/sampleionic.git']]])
