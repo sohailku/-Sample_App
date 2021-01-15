@@ -1,11 +1,10 @@
 pipeline {
-    agent {
-        docker { image 'ubuntu:latest' }
-    }
+    agent none
     stages {
-        stage('Test') {
+        stage ('build') {
+            agent { label 'andriod' }
             steps {
-                sh 'node --version'
+                echo 'linux build'
             }
         }
     }
