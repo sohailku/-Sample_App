@@ -34,9 +34,9 @@ pipeline {
                 }  
                 }
                 }
-         stage('Docker Remove Image') {
+         stage('fastlane test') {
       steps {
-        sh "fastlane test"
+        sh 'fastlane test'
       }
     }
                 
