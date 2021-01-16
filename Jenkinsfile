@@ -38,7 +38,7 @@ pipeline {
       steps {
         sh 'java -version'
         sh 'cat /etc/lsb-release'
-        sh 'fastlane test'
+        sh 'fastlane init'
       }
     }
                 
