@@ -11,6 +11,7 @@ pipeline {
        }
      }
                 stage ('Build & Push Image') {
+                 agent docker
                 steps {
                 script {
                     //dockerUrl = "hub.docker.com"
