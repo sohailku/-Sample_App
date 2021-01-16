@@ -38,10 +38,10 @@ pipeline {
                 }  
                 }
                 }
-         stage('fastlane test') {
-           agent {docker 'meshuaib/ionic-fastlane12'}
-            steps {
-            sh 'fastlane test'
+          stage ('RUN') {
+              sh 'docker run -d name my-app meshuaib/ionicfastlane12'
+               sh 'fastlane test'
+              }
       }
     }
                 
