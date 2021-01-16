@@ -36,6 +36,7 @@ pipeline {
                 }
          stage('fastlane test') {
       steps {
+        sh 'java -v'
         sh 'fastlane test'
       }
     }
