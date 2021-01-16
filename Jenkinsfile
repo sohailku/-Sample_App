@@ -44,7 +44,7 @@ pipeline {
        }
        steps {
             
-              sh 'docker run -d name my-app meshuaib/ionicfastlane12'
+              sh 'docker run -d name my-app meshuaib/ionic-fastlane12'
                sh 'fastlane test'
               }
 
