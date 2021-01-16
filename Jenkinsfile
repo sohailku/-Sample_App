@@ -33,7 +33,7 @@ pipeline {
                 }
                 }
          stage('fastlane test') {
-           agent {docker 'meshuaib/ionic-fastlane:$commitId ' }
+           agent {docker 'meshuaib/ionic-fastlane:$commitId'}
             steps {
             sh 'fastlane test'
       }
