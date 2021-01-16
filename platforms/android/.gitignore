@@ -1,21 +1,21 @@
 # Non-project-specific build files:
-ddbuild.xml
-ddlocal.properties
-dd/gradlew
-dd/gradlew.bat
-dd/gradle
-dd# Ant builds
-ddant-build
-ddant-gen
+#build.xml
+#local.properties
+#/gradlew
+#/gradlew.bat
+#/gradle
+# Ant builds
+#ant-build
+#ant-gen
 # Eclipse builds
-ddgen
-ddout
+#gen
+#out
 # Gradle build artifacts
-dd.gradle
-dd.gradletasknamecache
-dd/build
-dd/CordovaLib/build
-dd/app/build
-ddgradle-app.setting
+#gradle
+#gradletasknamecache
+#build
+#CordovaLib/build
+#app/build
+#gradle-app.setting
 # Android Studio
 .idea
