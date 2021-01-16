@@ -36,7 +36,8 @@ pipeline {
                 }
          stage('fastlane test') {
       steps {
-        sh 'java -v'
+        sh 'java -version'
+        sh 'cat /etc/lsb-release'
         sh 'fastlane test'
       }
     }
