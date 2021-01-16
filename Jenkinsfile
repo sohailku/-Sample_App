@@ -2,7 +2,7 @@ pipeline {
   agent any
    stages {
      stage('Checkout') {
-       agent { node {label 'andriod'}
+       agent { node {label 'docker'}
        }
        steps {
          script {
@@ -13,7 +13,7 @@ pipeline {
                 stage ('Build & Push Image') {
                    agent { 
                      node { 
-                       label 'andriod' 
+                       label 'docker' 
                       }
                          }
                 steps {
