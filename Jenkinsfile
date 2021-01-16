@@ -2,7 +2,7 @@ pipeline {
   agent none
    stages {
      stage('Checkout') {
-       agent { node {label 'android'}
+       agent { node {label 'andriod'}
        }
        steps {
          script {
