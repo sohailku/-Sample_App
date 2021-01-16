@@ -1,18 +1,16 @@
 pipeline {
-  agent { 
-    node { 
-      label 'andriod' 
-    }
-   }
+  agent none
    stages {
      stage('Checkout') {
+       agent { node {label 'amdroid'}
+       }
        steps {
          script {
-           checkout([$class: 'GitSCM', branches: [[name: '*/develop']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'gitaccess', url: 'https://github.com/meshuaib/sampleionic.git']]])
+           checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'gitaccess', url: 'https://github.com/meshuaib/sampleionic.git']]])
          }
        }
      }
-               stage ('Build & Push Image') {
+                stage ('Build & Push Image') {
                 steps {
                 script {
                     //dockerUrl = "hub.docker.com"
@@ -27,7 +25,6 @@ pipeline {
                             exitCode = sh(script: """
                                 docker login -u $USERNAME -p $PASSWORD
                                 docker build -t  meshuaib/ionic-fastlane:$commitId .
-                            
                                 
                             """, returnStatus: true)
                         }
@@ -35,16 +32,13 @@ pipeline {
                 }  
                 }
                 }
-               stage ('fastlane test') {
-                 steps {
-                   scripts {
-                     img = docker.image('meshuaib/ionic-fastlane:$commitId')
-                     img.inside ('-u root) {
-                                 try{
-                                   sh "fastlane test"
-                    }
-                 }
-                 }       
-                 }
-                       }
-                        
+         stage('fastlane test') {
+           agent {docker 'meshuaib/ionic-fastlane:$commitId ' }
+            steps {
+            sh 'fastlane test'
+      }
+    }
+                
+
+   }
+}
