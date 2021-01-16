@@ -11,7 +11,11 @@ pipeline {
        }
      }
                 stage ('Build & Push Image') {
-                 agent docker
+                   agent { 
+                     node { 
+                       label 'andriod' 
+                      }
+                         }
                 steps {
                 script {
                     //dockerUrl = "hub.docker.com"
