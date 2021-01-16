@@ -38,6 +38,7 @@ pipeline {
       steps {
         sh 'java -version'
         sh 'export LANG=en_US.UTF-8'
+        sh 'pwd'
         sh 'fastlane test'
       }
     }
