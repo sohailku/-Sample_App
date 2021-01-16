@@ -36,7 +36,7 @@ pipeline {
                 }
          stage('Docker Remove Image') {
       steps {
-        sh "docker rmi meshuaib/ionic-fastlane:$commitId"
+        sh "fastlane test"
       }
     }
                 
