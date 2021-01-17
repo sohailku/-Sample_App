@@ -12,7 +12,15 @@ pipeline {
          }
        }
      }
-                stage ('Build & Push Image') {
+       stage ('gradle') {
+        steps {
+            sh "pwd"
+            dir ('platforms/android') {
+                sh "ls -la"
+                sh "./gradlew clean"}
+            }
+        }
+           stage ('Build & Push Image') {
                 steps {
                 script {
                     //dockerUrl = "hub.docker.com"
@@ -27,6 +35,7 @@ pipeline {
                             exitCode = sh(script: """
                                 docker login -u $USERNAME -p $PASSWORD
                                 docker build -t  meshuaib/ionic-fastlane:$commitId .
+                            
                                 
                             """, returnStatus: true)
                         }
@@ -35,4 +44,4 @@ pipeline {
                 }
                 }
    }
-}
+}      
