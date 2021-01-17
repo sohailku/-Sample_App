@@ -1,9 +1,11 @@
 pipeline {
-  agent any
+  agent { 
+    node { 
+      label 'andriod' 
+    }
+   }
    stages {
      stage('Checkout') {
-       agent { node {label 'docker'}
-       }
        steps {
          script {
            checkout([$class: 'GitSCM', branches: [[name: '*/develop']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'gitaccess', url: 'https://github.com/meshuaib/sampleionic.git']]])
@@ -11,11 +13,6 @@ pipeline {
        }
      }
                 stage ('Build & Push Image') {
-                   agent { 
-                     node { 
-                       label 'docker' 
-                      }
-                         }
                 steps {
                 script {
                     //dockerUrl = "hub.docker.com"
@@ -29,8 +26,7 @@ pipeline {
                         ansiColor('xterm') {
                             exitCode = sh(script: """
                                 docker login -u $USERNAME -p $PASSWORD
-                                #docker build -t  meshuaib/ionic-fastlane:$commitId .
-                                docker build -t  meshuaib/ionic-fastlane12 .
+                                docker build -t  meshuaib/ionic-fastlane:$commitId .
                                 
                             """, returnStatus: true)
                         }
@@ -38,16 +34,14 @@ pipeline {
                 }  
                 }
                 }
-          stage ('RUN') {
-             
-       agent { node {label 'docker'}
-       }
-       steps {
-            
-              sh 'docker run -d name my-app meshuaib/ionic-fastlane12'
-               sh 'fastlane test'
-              }
+         stage('fastlane test') {
+      steps {
+        sh 'java -version'
+        sh 'export LANG=en_US.UTF-8'
+        sh 'fastlane init'
+      }
+    }
+                
 
    }
-}
 }
