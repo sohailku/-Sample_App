@@ -34,15 +34,5 @@ pipeline {
                 }  
                 }
                 }
-         stage('fastlane test') {
-      steps {
-        sh 'java -version'
-        sh 'export LANG=en_US.UTF-8'
-        sh 'ls -la'
-        sh 'fastlane test'
-      }
-    }
-                
-
    }
 }
