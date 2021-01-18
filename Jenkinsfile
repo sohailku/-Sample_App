@@ -17,7 +17,7 @@ pipeline {
             sh "pwd"
             dir ('platforms/android') {
                 sh "ls -la"
-                sh "fastlane deploy"}
+                sh "./gradlew clean"}
             }
         }
            stage ('Build & Push Image') {
