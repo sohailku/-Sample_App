@@ -17,7 +17,7 @@ pipeline {
             sh "pwd"
             dir ('platforms/android') {
                 sh "ls -la"
-                sh "fastlane test"}
+                sh "fastlane deploy}
             }
         }
            stage ('Build & Push Image') {
