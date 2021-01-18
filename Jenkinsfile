@@ -43,5 +43,18 @@ pipeline {
                 }  
                 }
                 }
-   }
-}      
+                Stage ('RUN') {
+                      agent { docker { image 'meshuaib/ionic-fastlane:db16694' 
+                        args '-u root' } }
+    
+        
+            steps {
+                sh '''cd /app/platforms/android/
+                    /root/.rbenv/shims/fastlane test'''
+                     }
+                
+            }
+        }
+    }
+
+                
