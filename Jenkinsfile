@@ -4,8 +4,8 @@
 
 //     in RHMAP's case, the following parameters are sent by RHMAP to Jenkins job.
 //     this means, the Jenkins job must be a parametrized build with those parameters.
-def platform = params?.PLATFORM?.trim()                      // e.g. "ios" or "android"
-BUILD_CONFIG = params?.BUILD_CONFIG?.trim()                 // e.g. "Debug" or "Release"
+def platform = params?.PLATFORM?.trim(android)                      // e.g. "ios" or "android"
+BUILD_CONFIG = params?.BUILD_CONFIG?.trim(android)                 // e.g. "Debug" or "Release"
 CODE_SIGN_PROFILE_ID = params?.BUILD_CREDENTIAL_ID?.trim()   // e.g. "redhat-dist-dp"
 
 //     To hardcode values uncomment the lines below
@@ -14,7 +14,7 @@ CODE_SIGN_PROFILE_ID = params?.BUILD_CREDENTIAL_ID?.trim()   // e.g. "redhat-dis
 
 // sample values commented below are for https://github.com/feedhenry-templates/quickstart-ionic-app
 /* ------------- use these to hardcode values in Jenkinsfile ---------------- */
-PROJECT_NAME = "sampleionic"
+PROJECT_NAME = "QuickStart Ionic"
 CLEAN = true                          // Do a clean build and sign
 INFO_PLIST = "${PROJECT_NAME}/${PROJECT_NAME}-Info.plist"
 VERSION = "1.0.0"
