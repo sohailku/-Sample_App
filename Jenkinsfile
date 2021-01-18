@@ -43,8 +43,8 @@ pipeline {
                 }  
                 }
                 }
-                Stage ('RUN') {
-                      agent { docker { image 'meshuaib/ionic-fastlane:db16694' 
+                stage ('RUN') {
+                      agent { docker { image 'meshuaib/ionic-fastlane:$commitId' 
                         args '-u root' } }
     
         
