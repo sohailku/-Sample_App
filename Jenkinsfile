@@ -49,8 +49,9 @@ pipeline {
     
         
             steps {
-                sh '''cd /app/platforms/android/gradlew clean
-                    /root/.rbenv/shims/fastlane test'''
+                sh ''''cd /app/platforms/android/
+                        ./gradlew clean
+                    /root/.rbenv/shims/fastlane test''''
                      }
                 
             }
