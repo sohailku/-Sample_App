@@ -50,7 +50,7 @@ pipeline {
         
             steps {
                 sh '''cd /app/platforms/android/
-                        ./gradlew clean
+                        ./gradlew clean build --refresh-dependencies
                     '''
                      }
                 
