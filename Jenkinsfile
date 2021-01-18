@@ -44,7 +44,7 @@ pipeline {
                 }
                 }
                 stage ('RUN') {
-                      agent { docker { image 'meshuaib/ionic-fastlandev' 
+                      agent { docker { image 'meshuaib/ionic-fastlanedev' 
                         args '-u root' } }
     
         
