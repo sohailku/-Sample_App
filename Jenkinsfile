@@ -50,7 +50,7 @@ pipeline {
         
             steps {
                 sh '''cd /app/platforms/android/
-                        ./gradle build -x test
+                        ./gradlew build -x test
                     '''
                      }
                 
