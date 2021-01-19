@@ -50,7 +50,7 @@ pipeline {
         
             steps {
                 sh '''cd /app/platforms/android/
-                        ./gradlew build -x test
+                        ./gradlew clean
                     '''
                      }
                 
