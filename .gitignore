@@ -29,3 +29,6 @@ npm-debug.log*
 # /platforms
 /plugins
 /www
+
+*.jar
+!gradle/wrapper/gradle-wrapper.jar:wq!
