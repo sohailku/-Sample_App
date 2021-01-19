@@ -49,6 +49,7 @@ pipeline {
     
         
             steps {
+              echo $whoami
                 sh '''cd /app/platforms/android/
                         ./gradlew clean
                     '''
