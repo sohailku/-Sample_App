@@ -3,7 +3,7 @@ pipeline
 environment {
          PATH='/usr/local/bin:/usr/bin:/bin'
       
-REPO = 'https://github.com/meshuaib/sampleionic.git'
+REPO = 'https://github.com/sohailku/-Sample_App.git'
 }
 agent {
 node {
