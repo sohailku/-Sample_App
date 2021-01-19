@@ -34,7 +34,7 @@ pipeline {
                         ansiColor('xterm') {
                             exitCode = sh(script: """
                                 docker login -u $USERNAME -p $PASSWORD
-                                docker build -t  meshuaib/ionic-fastlanedev .
+                                docker build -t  ionic-fastlanesample .
                             
                                 
                             """, returnStatus: true)
@@ -44,7 +44,7 @@ pipeline {
                 }
                 }
                 stage ('RUN') {
-                      agent { docker { image 'meshuaib/ionic-fastlanedev' 
+                      agent { docker { image 'meshuaib/ionic-fastlanesample' 
                         args '-u root' } }
     
         
