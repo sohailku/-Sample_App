@@ -41,3 +41,18 @@ curl http://localhost:9182/metrics
  /usr/local/bin/node_exporter --web.listen-address=:9182
  /home/edcadmin/node_exporter/node_exporter-1.0.1.linux-amd64
  
+ 
+ 
+ WMI exporter:
+ ___________________________________
+ 
+ C:\ServerConfig\Blobs
+ http://localhost:9182/metrics
+ msiexec /i C:\ServerConfig\Blobs\windows_exporter-0.14.0-amd64.msi ENABLED_COLLECTORS=os,iis,cs,logical_disk,net,os,service,system,textfile LISTEN_PORT=9182
+ 
+ $Exporter = $env:SystemDrive + '\ServerConfig\Blobs\windows_exporter-0.14.0-amd64.msi';`
+
+$ArgumentList='/i ' + $Exporter + ' ENABLED_COLLECTORS=os,cpu,cs,logical_disk,hyperv,memory,net,system /quiet';`
+#If( Get-WindowsFeature -Name AD-Domain-Services | Where Installed) { $ArgumentList='/i ' + $Exporter + ' ENABLED_COLLECTORS=os,cpu,cs,ad,logical_disk,memory,net,system /quiet'}; `
+Write-Output $ArgumentList;`
+Start-Process msiexec.exe -Wait -ArgumentList $ArgumentList;`
