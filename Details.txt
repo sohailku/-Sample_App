@@ -1,0 +1,43 @@
+fluent-bit for linux
+______________________________
+
+sudo systemctl daemon-reload
+sudo service td-agent-bit start
+sudo service td-agent-bit enable
+service td-agent-bit status
+
+Path:
+/etc/td-agent-bit/td-agent-bit.conf
+/usr/lib/systemd/system/td-agent-bit.service
+
+_______________________________________
+
+Blackbox URL monitoring:
+_______________________________________
+sudo systemctl status blackbox.service
+sudo systemctl daemon-reload
+sudo systemctl start blackbox.service
+udo systemctl enable blackbox.service
+
+Path:
+/usr/lib/systemd/system/blackbox.service
+/etc/blackbox/blackbox.yml
+ 
+curl http://localhost:9115/metrics
+_______________________________________
+ 
+ 
+ node exporter :
+______________________________________
+
+sudo systemctl daemon-reload
+sudo systemctl start node_exporter
+sudo systemctl enable node_exporter
+sudo systemctl status node_exporter.service
+curl http://localhost:9182/metrics
+   
+ Path:
+ /etc/systemd/system/node_exporter.service
+ /usr/local/bin/node_exporter --web.listen-address=:9182
+ /home/edcadmin/node_exporter/node_exporter-1.0.1.linux-amd64
+ 
