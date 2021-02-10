@@ -5,7 +5,16 @@ sudo systemctl daemon-reload
 sudo service td-agent-bit start
 sudo service td-agent-bit enable
 service td-agent-bit status
-td-agent-bit -i cpu -o stdout -f 1 td-agent-bit -i tail -p path=/datadisk/acm/imtf/logs/karaf-server/server/root/*.log -o stdout
+td-agent-bit -i cpu -o stdout -f 1 
+td-agent-bit -i tail -p path=/datadisk/acm/imtf/logs/karaf-server/server/root/*.log -o stdout
+
+curl -k -v   https://loki.k8s.shd.eradahcapital.com/loki/api/v1/push
+
+td-agent-bit -i cpu -o stdout -f 1
+td-agent-bit -i memory -o stdout -f 1
+td-agent-bit -i heap -o stdout -f 1
+
+
 
 Path:
 /etc/td-agent-bit/td-agent-bit.conf
