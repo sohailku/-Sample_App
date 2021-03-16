@@ -5,3 +5,18 @@ https://artifactory.k8s.shd.eradahcapital.com/ui/repos/tree/General/eradahcapita
 docker tag <IMAGE_ID> artprod.mycompany/<DOCKER_REPOSITORY>:<DOCKER_TAG>
 docker push artprod.mycompany/<DOCKER_REPOSITORY>:<DOCKER_TAG>
 docker pull artprod.mycompany/<DOCKER_REPOSITORY>:<DOCKER_TAG>
+
+
+maven
+<distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>jfrog-platform-artifactory-ha-primary-0-releases</name>
+        <url>https://artifactory.k8s.shd.eradahcapital.com/artifactory/eradahcapital-maven-dev-local</url>
+    </repository>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>jfrog-platform-artifactory-ha-primary-0-snapshots</name>
+        <url>https://artifactory.k8s.shd.eradahcapital.com/artifactory/eradahcapital-maven-dev-local</url>
+    </snapshotRepository>
+</distributionManagement>
