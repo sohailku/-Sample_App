@@ -2,3 +2,6 @@ AKCp8ihVp9cgXBy3C4KoGrZEfHLAZAiWLSxxcbkW54BFt9w1HNuiE6UzusComJcLzaCxvpyFT
 eradahcapital-docker-dev-local.localhost
 docker login artprod.mycompany
 https://artifactory.k8s.shd.eradahcapital.com/ui/repos/tree/General/eradahcapital-docker-dev-local
+docker tag <IMAGE_ID> artprod.mycompany/<DOCKER_REPOSITORY>:<DOCKER_TAG>
+docker push artprod.mycompany/<DOCKER_REPOSITORY>:<DOCKER_TAG>
+docker pull artprod.mycompany/<DOCKER_REPOSITORY>:<DOCKER_TAG>
