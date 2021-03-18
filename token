@@ -28,3 +28,6 @@ curl -H "X-JFrog-Art-Api:<API_KEY>" -T <PATH_TO_FILE> "https://artifactory.k8s.s
 
 download 
 curl -H "X-JFrog-Art-Api:<API_KEY>" -O "https://artifactory.k8s.shd.eradahcapital.com/artifactory/eradahcapital-generic-dev-local/<TARGET_FILE_PATH>"
+
+
+https://artifactory.k8s.shd.eradahcapital.com/artifactory/eradahcapital-docker-dev-local/
