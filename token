@@ -45,3 +45,6 @@ https://artifactory.k8s.shd.eradahcapital.com/artifactory/eradahcapital-docker-d
         <url>https://artifactory.k8s.shd.eradahcapital.com/artifactory/eradahcapital-maven-dev-local</url>
     </snapshotRepository>
 </distributionManagement>
+
+
+https://artifactory.k8s.shd.eradahcapital.com/artifactory/eradahcapital-docker-dev-local/
