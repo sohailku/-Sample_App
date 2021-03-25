@@ -60,3 +60,5 @@ https://artifactory.k8s.shd.eradahcapital.com/artifactory/eradahcapital-docker-d
 </distributionManagement>
 
 https://artifactory.k8s.shd.eradahcapital.com/artifactory/eradahcapital-docker-dev-local/
+
+https://artifactory.k8s.shd.eradahcapital.com/artifactory/eradahcapital-generic-dev-local/
