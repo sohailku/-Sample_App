@@ -49,7 +49,7 @@
           <url>https://artifactory.k8s.shd.eradahcapital.com/artifactory/eradahcapital-test-libs-release</url>
         </pluginRepository>
         <pluginRepository>
-          <snapshots />
+         <snapshots />
           <id>snapshots</id>
           <name>eradahcapital-test-libs-snapshot</name>
           <url>https://artifactory.k8s.shd.eradahcapital.com/artifactory/eradahcapital-test-libs-snapshot</url>
@@ -79,6 +79,14 @@
       <id>snapshots</id>
     </server>
   </servers>
+  <mirrors>
+    <mirror>
+      <mirrorOf>*</mirrorOf>
+      <name>eradahcapital-test-libs-snapshot</name>
+      <url>https://artifactory.k8s.shd.eradahcapital.com/artifactory/eradahcapital-test-libs-snapshot</url>
+      <id>eradahcapital-test-libs-snapshot</id>
+    </mirror>
+  </mirrors>
   <profiles>
     <profile>
       <repositories>
@@ -120,4 +128,3 @@
     <activeProfile>artifactory</activeProfile>
   </activeProfiles>
 </settings>
-
