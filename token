@@ -67,3 +67,48 @@ https://artifactory.k8s.shd.eradahcapital.com/artifactory/eradahcapital-generic-
 AKCp8ihVp9cgXBy3C4KoGrZEfHLAZAiWLSxxcbkW54BFt9w1HNuiE6UzusComJcLzaCxvpyFT
 
 AKCp8ihpJSgYnDHLvPTX5xmukLkHs8WQn9wsFZpMMEDmGnXKaozXMEgAWT6D7WBFJ1FbtMNNS
+
+
+
+************************************************************************************
+build.gradle
+
+buildscript {
+    repositories {
+        jcenter()
+        
+    }
+    dependencies {
+        //Check for the latest version here: http://plugins.gradle.org/plugin/com.jfrog.artifactory
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4+"
+    }
+}
+
+allprojects {
+    apply plugin: "com.jfrog.artifactory"
+}
+
+artifactory {
+    contextUrl = "${artifactory_contextUrl}"   //The base Artifactory URL if not overridden by the publisher/resolver
+    publish {
+        repository {
+            repoKey = 'eradahcapital-gradle-dev-local'
+            username = "${artifactory_user}"
+            password = "${artifactory_password}"
+            maven = true
+            
+        }
+    }
+    resolve {
+        repository {
+            repoKey = 'eradahcapital-gradle-dev'
+            username = "${artifactory_user}"
+            password = "${artifactory_password}"
+            maven = true
+            
+        }
+    }
+}
+
+************************************************************************************
+
