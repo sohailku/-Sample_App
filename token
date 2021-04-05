@@ -98,7 +98,13 @@ artifactory {
             maven = true
             
         }
+        defaults {
+                   publications('mavenJava')
+                   publishArtifacts = true
+                   publishPm = true
+                 }
     }
+    
     resolve {
         repository {
             repoKey = 'eradahcapital-gradle-dev'
