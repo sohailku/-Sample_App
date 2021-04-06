@@ -101,7 +101,7 @@ artifactory {
         defaults {
                    publications('mavenJava')
                    publishArtifacts = true
-                   publishPm = true
+                   publishPom = true
                  }
     }
     
